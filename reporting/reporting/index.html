@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Дневной отчет</title>
+	<meta name="google-signin-client_id" content="20449658341-fk436athd393dkamag4pj8f13mga5dm8.apps.googleusercontent.com">
+	<meta name="google-signin-scope" content="https://www.googleapis.com/auth/spreadsheets">
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&amp;subset=cyrillic" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+</head>
+<body>
+
+
+
+	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	<form action="" method="post" style="display:none" id="report-form">
+		<div class="loading">Загрузка...</div>
+		<div class="loaded" style="display:none">
+			<div href="#" onclick="signOut();" class="exit">Выход</div>
+			<div class="line line_s">
+				<div class="input-header">Проект:</div>
+				<div class="input-text" id="project"></div>
+			</div>
+			<div class="line line_s">
+				<div class="input-header">Этап:</div>
+				<div class="input-text" id="etap"></div>
+			</div>
+			<div class="line line_s">
+				<div class="input-header">Дедлайн:</div>
+				<div class="input-text" id="deadline"></div>
+			</div>
+			<div class="line" style="margin-top:20px;margin-bottom: 10px">
+				<div class="input-header" style="font-size:24px;">Отчет:</div>
+				<textarea name="report" id="report"></textarea>
+			</div>
+			<div class="line">
+				<div>
+					<input type="checkbox" name="obnovil" class="check" id="agree"><div class="input-text check">Я обновил результаты работы:</div>	
+				</div>
+
+				<a class="link" href="#" target="_blank" id="cloud">GDrive/GitHub</a>
+				<a class="link" href="#" target="_blank" id="result">Ccылка на результат</a>
+			</div>
+			<div class="line" style="margin-top:40px">
+				<div class="input-header">Дата:</div>
+				<input type="text" name="date" id="date">
+			</div>
+			<div class="line">
+				<div class="input-header" style="width:300px;margin-right:0;" id="person"></div>
+			</div>
+			<input type="hidden" name="gmail" id="gmail">
+			<div class="line">
+				<button type="submit">Отправить</button>
+			</div>
+		</div>
+		<div class="loading sended">Отчет отправлен, спасибо!</div>
+	</form>
+
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="https://apis.google.com/js/client.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+	<script src="https://apis.google.com/js/platform.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>

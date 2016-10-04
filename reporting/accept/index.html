@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Старт выполнения</title>
+	<meta name="google-signin-client_id" content="20449658341-fk436athd393dkamag4pj8f13mga5dm8.apps.googleusercontent.com">
+	<meta name="google-signin-scope" content="https://www.googleapis.com/auth/spreadsheets">
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&amp;subset=cyrillic" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+</head>
+<body>
+
+
+
+	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	<form action="" method="post" style="display:none" id="report-form">
+		<div class="loading">Загрузка...</div>
+		<div class="loaded" style="display:none">
+			<div href="#" onclick="signOut();" class="exit">Выход</div>
+			<div class="line line_s">
+				<div class="input-header">Проект:</div>
+				<div class="input-text" id="project"></div>
+			</div>
+			<div class="line line_s">
+				<div class="input-header">Этап:</div>
+				<div class="input-text" id="etap"></div>
+			</div>
+			<div class="line line_s">
+				<div class="input-header-middle">Я буду выполнять проект в эти дни<br>(Выбери <span id ="count_of_days"></span> дней):</div>
+				<div id="calendar"></div>
+			</div>
+			<div class="line line_s">
+				<div class="input-header">Дедлайн:</div>
+				<div class="input-text" id="deadline"></div>
+			</div>
+			<div class="line" style="margin-top:30px;">
+				<div style="width:300px;margin: 0 auto;">
+					<input type="checkbox" name="" class="check" id="accept"><div class="input-text check">Я ознакомился с требованиями к выполнению и буду их соблюдать</div>	
+				</div>
+			</div>
+			<div class="line line_s" style="margin-top:10px;">
+				<div style="width:300px;margin: 0 auto;">
+					<input type="checkbox" name="" class="check" id="faq"><div class="input-text check">Я проверил входящий материал и получил ответы на все возникшие вопросы</div>
+				</div>
+			</div>
+			<div class="line line_s" style="margin-top:10px;">
+				<div style="width:300px;margin: 0 auto;">
+					<input type="checkbox" name="" class="check" id="sync"><div class="input-text check">Я получил доступ и синхронизировался с проектом расположенным по этом адресу:</div>	
+					<a class="link" href="" target="_blank" id="cloud">GDrive/GitHub</a>
+				</div>
+			</div>
+			<div class="line line_s" style="margin-top:10px;">
+				<div style="width:300px;margin: 0 auto;">
+					<input type="checkbox" name="" class="check" id="every"><div class="input-text check">Я буду ежедневно синхронизировать результаты своей работы с папкой проекта</div>
+				</div>
+			</div>
+			<div class="line line_s" style="margin-top:10px;">
+				<div style="width:300px;margin: 0 auto;">
+					<input type="checkbox" name="" class="check" id="update"><div class="input-text check">Я буду ежедневно обновлять результаты своей работы (верстка/макет.jpg) по этому адресу:</div>
+				</div>				
+				<input type="text" name="link_to" id="link_to">
+			</div>
+			<div class="line line_s" style="margin-top:10px;">
+				<div style="width:300px;margin: 0 auto;">
+					<input type="checkbox" name="" class="check" id="report"><div class="input-text check">Я буду ежедневно отсписываться что я выполнил за день по этому адресу:</div>
+					<a class="link" href="../reporting/" target="_blank">Дневной отчет</a>
+				</div>
+			</div>
+			<div class="line line_s" style="margin-top:10px;">
+				<div style="width:300px;margin: 0 auto;">
+					<input type="checkbox" name="" class="check" id="ican"><div class="input-text check">Я справлюсь со всем и выполню все в срок</div>
+				</div>
+			</div>
+			<div class="line">
+				<div class="input-header" style="width:300px;margin-right:0;" id="person"></div>
+			</div>
+			<input type="hidden" name="gmail" id="gmail">
+			<div class="line">
+				<button type="submit">Отправить</button>
+			</div>
+		</div>
+		<div class="loading sended">Данные отправлены, спасибо!</div>
+	</form>
+
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="https://apis.google.com/js/client.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+	<script src="https://apis.google.com/js/platform.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>
