@@ -115,6 +115,8 @@ $(document).ready(function() {
 
 	  function find_cur_project(range,email){
 
+
+
 	  	var object = range.values;
 		
 
@@ -150,7 +152,17 @@ $(document).ready(function() {
 
 	  function find_cur_row(){
 
-	  	var object = range.values;
+
+
+	  	 gapi.client.sheets.spreadsheets.values.get({
+	          spreadsheetId: '1stpKVORtP8eoEHgLK9c-8ZQYomEx1CQ7A5lmjF0TzKE',
+	          range: "A1:ZZ300",
+	        }).then(function(response) {
+	          range = response.result;
+
+
+
+var object = range.values;
 	
 	
 		for(key in object[0]) {
@@ -251,6 +263,13 @@ $(document).ready(function() {
 					    }, function(response) {
 					        	console.log(response);
 				        });;
+
+	          
+	        }, function(response) {
+	          appendPre('Error: ' + response.result.error.message);
+	        });
+
+	  	
 
 
 	  }

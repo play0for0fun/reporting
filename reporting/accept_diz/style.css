@@ -1,0 +1,109 @@
+
+*{margin:0;padding:0;box-sizing:border-box;background-position:center;background-repeat:no-repeat}
+:after,:before{content:"";display:block;width:100%;height:0;clear:both}
+sup:after,sup:before,a:after,a:before,br:after,br:before,img:after,img:before,span:after,span:before,table:after,table:before,td:after,td:before,tr:after,tr:before{content:none}
+h1,h2,h3,h4,h5{font-size:1em;font-weight:inherit;text-align:center;font-family: $fontfamily;font-weight: 400;}
+body{font-family:Roboto;font-weight:400;color:#3e3e3e;padding: 20px;}
+a{text-decoration:none;color:inherit;outline:0!important}
+button,input,textarea{outline: none;font-family: inherit;}
+.loading{}
+.g-signin2 {}
+.loaded {text-align: center;overflow: hidden;}
+.exit {background: #e4e4e4;display: inline-block;padding: 4px;margin-bottom: 50px;cursor: pointer;float: right;}
+.line{
+	padding: 5px;
+}
+.line_s{
+	padding: 0px;
+}
+.loaded .input-header{
+	display: inline-block;
+	width: 80px;
+	text-align: right;
+	margin-right: 20px;
+	padding: 4px 6px;
+	font-size: 16px;
+	max-width: 100%;
+	word-break: normal;
+}
+.loaded textarea{
+	width: 300px;
+	height: 100px;
+	border: 1px solid gray;
+	resize: vertical;
+	display: block;
+	margin: 0 auto;
+	padding: 10px;
+	font-size: 16px;
+	max-width: 100%;
+}
+.loaded input{
+	width: 200px;
+	font-size: 16px;
+	padding: 6px;
+	margin: 0px 0px;
+	max-width: 100%;
+}
+.error-input{
+	border:1px solid red;
+}
+.abcRioButton{
+	margin: 0 auto;
+}
+.input-text{display: inline-block;width: 180px;text-align: left;margin-right: 20px;padding: 0px 6px;font-size: 20px;}
+.input-text#deadline{
+	color: red;
+}
+.link{
+	display: inline-block;
+	color: blue;
+	text-decoration: underline;
+	margin: 0 5px;
+}
+.input-text.check{width: 280px!important;margin-left: 4px;}
+.check{
+	width: initial!important;
+	margin-right: 0;
+	font-size: 16px;
+	vertical-align: middle;
+	margin: 5px 0;
+}
+button[type="submit"]{
+	padding: 5px 8px;
+	border: gray;
+	font-size: 20px;
+	margin-top: 20px;
+	background: green;
+	color: white;
+	cursor: pointer;
+}
+.sended{
+	display: none;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	font-size: 24px;
+	transform: translate3d(-50%,-50%,0);}
+#calendar{
+	width: 300px;
+	margin: 0 auto;
+}
+#calendar .day-date{
+	width: 60px;
+	float: left;
+	padding: 3px;
+	border: 1px solid black;
+	cursor: pointer;
+}
+#calendar .day-date.active{
+	background: #8BC34A;
+}
+.input-header-middle{
+	text-align: center;
+	font-size: 16px;
+	margin-bottom: 10px;
+	margin-top: 30px;
+}
+.error-check{
+	color:red;
+}

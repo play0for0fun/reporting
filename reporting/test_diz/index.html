@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Необходимые данные</title>
+	<meta name="google-signin-client_id" content="20449658341-fk436athd393dkamag4pj8f13mga5dm8.apps.googleusercontent.com">
+	<meta name="google-signin-scope" content="https://www.googleapis.com/auth/spreadsheets">
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&amp;subset=cyrillic" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+</head>
+<body>
+
+	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	<form action="" method="post" style="display:none" id="report-form">
+		<div class="loading">Загрузка...</div>
+		<div class="loaded" style="display:none">
+			<div href="#" onclick="signOut();" class="exit">Выход</div>
+			<div class="line">
+				<p class="quest">Какие шрифты необходимо использовать</p>
+				<input type="radio" name='V1' value="1">Только Google Fonts<br>
+				<input type="radio" name='V1' value="2">Только бесплатные шрифты<br>
+				<input type="radio" name='V1' value="3">Любые какие найдешь прикольные<br>
+			</div>
+			<div class="line">
+				<p class="quest">Сколько шрифтовых начертаний необходимо использовать</p>
+				<input type="radio" name='V2' value="1">Максимум 2 шрифта<br>
+				<input type="radio" name='V2' value="2">Максимум 6 шрифтов<br>
+				<input type="radio" name='V2' value="3">Сколько захочется<br>
+			</div>
+			<div class="line">
+				<p class="quest">Размер контентной области</p>
+				<input type="radio" name='V3' value="1">980*600<br>
+				<input type="radio" name='V3' value="2">1920*1100<br>
+				<input type="radio" name='V3' value="3">1280*1024<br>
+			</div>
+			<div class="line">
+				<p class="quest">Сколько пикселей должна быть шапка по высоте на каждом экране?</p>
+				<input type="radio" name='V4' value="1">200 пикселей<br>
+				<input type="radio" name='V4' value="2">60 пикселей<br>
+				<input type="radio" name='V4' value="3">55 пикселей<br>
+			</div>
+			<div class="line">
+				<p class="quest">Надо ли выравнивать элементы в макете?</p>
+				<input type="radio" name='V5' value="1">Верстальщик выравнит самостоятельно<br>
+				<input type="radio" name='V5' value="2">Выравнивает Арт директор<br>
+				<input type="radio" name='V5' value="3">Надо выравнить все по направляющим<br>
+			</div>
+			<div class="line">
+				<p class="quest">Ширина мобильного макета</p>
+				<input type="radio" name='V6' value="1">320 пикселей<br>
+				<input type="radio" name='V6' value="2">480 пикселей<br>
+				<input type="radio" name='V6' value="3">Какой мобильный макет?<br>
+			</div>
+			<div class="line">
+				<p class="quest">Количество элементов в папках со слоями</p>
+				<input type="radio" name='V7' value="1">Не более 8<br>
+				<input type="radio" name='V7' value="2">Не более 6<br>
+				<input type="radio" name='V7' value="3">Сколько захочется<br>
+			</div>
+			<div class="line">
+				<p class="quest">Использовать ли режимы наложения в макетах</p>
+				<input type="radio" name='V8' value="1">Нельзя<br>
+				<input type="radio" name='V8' value="2">Можно, если они слиты и приведены к режиму normal<br>
+				<input type="radio" name='V8' value="3">Я рисую как получится<br>
+			</div>
+			<div class="line">
+				<p class="quest">Какие файлы содержат папка с тех заданием</p>
+				<input type="radio" name='V9' value="1">Psd мобильной и десктоп версии<br>
+				<input type="radio" name='V9' value="2">Psd мобильной и десктоп версии, и ворд документы<br>
+				<input type="radio" name='V9' value="3">Psd мобильной и десктоп версии, файл elements, и ворд документы<br>
+			</div>
+			<div class="line">
+				<p class="quest">Что должно быть в файле elements</p>
+				<input type="radio" name='V10' value="1">Активные элементы макета<br>
+				<input type="radio" name='V10' value="2">Шрифты<br>
+				<input type="radio" name='V10' value="3">Святое послание верстальщику<br>
+			</div>
+			<div class="line">
+				<p class="quest">Что должно быть описано в тз</p>
+				<input type="radio" name='V11' value="1">Все динамические элементы, анимации, хаверы<br>
+				<input type="radio" name='V11' value="2">Верстальщик сам поймет без тз<br>
+				<input type="radio" name='V11' value="3">Показать как я красиво фотошоплю<br>
+			</div>
+			<div class="line">
+				<p class="quest">Где мы будем с тобой общаться?</p>
+				<input type="radio" name='V12' value="1">Скайп или контакт<br>
+				<input type="radio" name='V12' value="2">Email<br>
+				<input type="radio" name='V12' value="3">Голубиной почтой<br>
+			</div>
+			<input type="hidden" name="gmail" id="gmail">
+			<div class="line">
+				<button type="submit">Отправить</button>
+			</div>
+		</div>
+		<div class="loading sended">Данные отправлены, спасибо!</div>
+	</form>
+	<p style="position: fixed;width: 100%;bottom:5px; left: 0;text-align:center;">Если страница работает некоректно - отключите блокировку попапов для этого домена и анонимность подключения для данного домена</p>
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="https://apis.google.com/js/client.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+	<script src="https://apis.google.com/js/platform.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>

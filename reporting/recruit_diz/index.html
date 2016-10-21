@@ -12,36 +12,34 @@
 </head>
 <body>
 
-
-
 	<div class="g-signin2" data-onsuccess="onSignIn"></div>
 	<form action="" method="post" style="display:none" id="report-form">
 		<div class="loading">Загрузка...</div>
 		<div class="loaded" style="display:none">
 			<div href="#" onclick="signOut();" class="exit">Выход</div>
-			<div class="line" style="margin-top:40px">
+			<div class="line">
 				<div class="input-header">Имя:</div>
 				<input type="text" name="name" id="name">
 			</div>
 			<div class="line">
-				<div class="input-header">Телефон:</div>
-				<input type="text" name="phone" id="phone">
+				<div class="input-header">Ссылка на профиль ВК:</div>
+				<input type="text" name="vk" id="vk">
 			</div>
 			<div class="line">
-				<div class="input-header" style="width:300px;text-align: center;margin-right: 0;">Контактные данные(скайп, вк, фейсбук, почта, вайбер, прочее):</div>
-				<textarea name="contacts" id="contacts"></textarea>
+				<div class="input-header">Skype:</div>
+				<input type="text" name="skype" id="skype">
 			</div>
 			<div class="line">
-				<div class="input-header" style="width:300px;text-align: center;margin-right: 0;">Реквизиты оплаты:</div>
-				<textarea name="money" id="money"></textarea>
+				<div class="input-header">Ссылка на самую лучшую работу с вашего портфолио:</div>
+				<input type="text" name="bw1" id="bw1" placeholder="http://webdone.16mb.com/stolewnia/">
 			</div>
 			<div class="line">
-				<div class="input-header">Аккаунт GitHub:</div>
-				<input type="text" name="github" id="github">
+				<div class="input-header">Ссылка на вторую лучшую работу с вашего портфолио:</div>
+				<input type="text" name="bw2" id="bw2" placeholder="http://webdone.16mb.com/stolewnia/">
 			</div>
 			<div class="line">
-				<div class="input-header">Аккаунт Trello:</div>
-				<input type="text" name="trello" id="trello">
+				<div class="input-header">Ссылка на третью лутшую работу с вашего портфолио:</div>
+				<input type="text" name="bw3" id="bw3" placeholder="http://webdone.16mb.com/stolewnia/">
 			</div>
 			<input type="hidden" name="gmail" id="gmail">
 			<div class="line">
@@ -50,7 +48,7 @@
 		</div>
 		<div class="loading sended">Данные отправлены, спасибо!</div>
 	</form>
-
+	<p style="position: fixed;width: 100%;bottom:5px; left: 0;text-align:center;">Если страница работает не коректно - отключите блокировку попапов для этого домена и анонимность подключения для данного домена</p>
 
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 	<script src="https://apis.google.com/js/client.js"></script>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Необходимые данные</title>
+	<meta name="google-signin-client_id" content="20449658341-fk436athd393dkamag4pj8f13mga5dm8.apps.googleusercontent.com">
+	<meta name="google-signin-scope" content="https://www.googleapis.com/auth/spreadsheets">
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&amp;subset=cyrillic" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+</head>
+<body>
+
+	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	<form action="" method="post" style="display:none" id="report-form">
+		<div class="loading">Загрузка...</div>
+		<div class="loaded" style="display:none">
+			<div href="#" onclick="signOut();" class="exit">Выход</div>
+			<div class="line">
+				<div class="input-header">Имя:</div>
+				<input type="text" name="name" id="name">
+			</div>
+			<div class="line">
+				<div class="input-header">Ссылка на профиль ВК:</div>
+				<input type="text" name="vk" id="vk">
+			</div>
+			<div class="line">
+				<div class="input-header">Skype:</div>
+				<input type="text" name="skype" id="skype">
+			</div>
+			<div class="line">
+				<div class="input-header">Ccылка на работу с Вашего портфолио, которую вы считаете наиболее валидной (Будет проверятся, <a href="https://validator.w3.org/nu/?doc=http%3A%2F%2Fwebdone.16mb.com%2Fstolewnia%2F" target="_blank">пример проверки</a>):</div>
+				<input type="text" name="valid" id="valid" placeholder="http://webdone.16mb.com/stolewnia/">
+			</div>
+			<div class="line">
+				<p class="input-header">Сколько ошибок валидатора у указанного Вами ресурса? <a class="link" href="https://validator.w3.org/nu/" data-input="valid" target="_blank">Посмотреть</a></p>
+				<input type="radio" name='V1' value="5">0 error<br>
+				<input type="radio" name='V1' value="4">1 - 10 error<br>
+				<input type="radio" name='V1' value="3">11+ error<br>
+			</div>
+			<div class="line">
+				<div class="input-header">Ccылка на работу с Вашего портфолио, у которой есть карта заголовков (Будет проверятся, <a href="https://validator.w3.org/nu/?showoutline=yes&doc=http%3A%2F%2Fwebdone.16mb.com%2Fstolewnia%2F" target="_blank">пример проверки</a>):</div>
+				<input type="text" name="map" id="map" placeholder="http://webdone.16mb.com/stolewnia/">
+			</div>
+			<div class="line">
+				<div class="input-header">Ccылка на работу с Вашего портфолио, которая максимум оптимизированна по Google PageSpeed Insights (Будет проверятся, <a href="https://developers.google.com/speed/pagespeed/insights/?hl=ru&url=http%3A%2F%2Fwebdone.16mb.com%2Fstolewnia%2F" target="_blank">пример проверки</a>):</div>
+				<input type="text" name="pagespeed" id="pagespeed" placeholder="http://webdone.16mb.com/stolewnia/">
+			</div>
+			<div class="line">
+				<div class="input-header">Какая оценка по скорости загрузки у указанного указанного Вами ресурса?<a class="link" href="https://developers.google.com/speed/pagespeed/insights/" target="_blank">Посмотреть</a></div>
+				<input type="radio" name='V2' value="5">100 - 95<br>
+				<input type="radio" name='V2' value="4">95 - 80<br>
+				<input type="radio" name='V2' value="3">меньше 80<br>
+			</div>
+			<div class="line">
+				<div class="input-header">Ccылка на работу с Вашего портфолио, которая максимум оптимизированна по весу страницы (Будет проверятся, <a href="https://tools.pingdom.com/#!/bBmeZo/http://webdone.16mb.com/stolewnia/" target="_blank">пример проверки</a>):</div>
+				<input type="text" name="pingdom" id="pingdom" placeholder="http://webdone.16mb.com/stolewnia/">
+			</div>
+			<div class="line">
+				<div class="input-header">Сколько весит страница (1.8МБ например) указанного Вами сайта?<a class="link" href="https://tools.pingdom.com/" target="_blank">Посмотреть</a></div>
+				<input type="radio" name='V3' value="5">0.5MB - 2.5MB<br>
+				<input type="radio" name='V3' value="4">2.5MB - 5MB<br>
+				<input type="radio" name='V3' value="3">больше 5MB<br>
+			</div>
+			<div class="line">
+				<div class="input-header">Ccылка на работу с Вашего портфолио, за кросбраузерность(указаную в критериях) кторой вы ручаетесь:</div>
+				<input type="text" name="krosbrowser" id="krosbrowser" placeholder="http://webdone.16mb.com/stolewnia/">
+			</div>
+			<div class="line">
+				<div class="input-header">Ccылка на работу с Вашего портфолио, которая выполнена с наилутшей адаптивностью:</div>
+				<input type="text" name="adaptive" id="adaptive" placeholder="http://webdone.16mb.com/stolewnia/">
+			</div>
+			<div class="line">
+				<div class="input-header">Работали ли вы с grunt/gulp?</div>
+				<input type="text" name="grunt" id="grunt">
+			</div>
+			<div class="line">
+				<div class="input-header">Работали ли вы с sass/less?</div>
+				<input type="text" name="sass" id="sass">
+			</div>
+			<div class="line">
+				<div class="input-header">Готовы ли вы расти и учится?</div>
+				<input type="text" name="learn" id="learn">
+			</div>
+			<input type="hidden" name="gmail" id="gmail">
+			<div class="line">
+				<button type="submit">Отправить</button>
+			</div>
+		</div>
+		<div class="loading sended">Данные отправлены, спасибо!</div>
+	</form>
+	<p style="position: fixed;width: 100%;bottom:5px; left: 0;text-align:center;">Если страница работает не коректно - отключите блокировку попапов для этого домена и анонимность подключения для данного домена</p>
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="https://apis.google.com/js/client.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+	<script src="https://apis.google.com/js/platform.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>

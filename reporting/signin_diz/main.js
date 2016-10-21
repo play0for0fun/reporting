@@ -91,40 +91,55 @@ $(document).ready(function() {
 
 	  function use_table(email){
 
-	  	var object = range.values;
+	  	gapi.client.sheets.spreadsheets.values.get({
+	          spreadsheetId: '14VaRta1xOjgnKSommsSBzBWEA-KbY0x_CCfT4UGKOoQ',
+	          range: "A1:Z100",
+	        }).then(function(response) {
+	          range = response.result;
+	          console.log(range);
+
+
+	           	var object = range.values;
 		
 
-		for(var i=0; i<object.length; i++) {
+				for(var i=0; i<object.length; i++) {
 
-		  for(key in object[i]) {
-		    if(object[i][key].indexOf(email)!=-1) {
-		    	alert('Вы уже есть в списке');
+				  for(key in object[i]) {
+				    if(object[i][key].indexOf(email)!=-1) {
+				    	alert('Вы уже есть в списке');
 
-		    	return false;
-		    }
-		  }
-		}
+				    	return false;
+				    }
+				  }
+				}
 
-		object[object.length] = new Array(email,$('#name').val(),$('#contacts').val());
+				object[object.length] = new Array(email,$('#name').val(),$('#phone').val(),$('#contacts').val(),$('#money').val(),$('#trello').val());
 
-		range.values = object;
-
-
-		gapi.auth.authorize({client_id: '20449658341-fk436athd393dkamag4pj8f13mga5dm8.apps.googleusercontent.com', scope: 'https://www.googleapis.com/auth/spreadsheets', immediate: false}).then(function(response) {
-		    	
-					    	gapi.client.sheets.spreadsheets.values.update({
-					          spreadsheetId: '14VaRta1xOjgnKSommsSBzBWEA-KbY0x_CCfT4UGKOoQ',
-					          range: "'Лист1'!A1:Z100",
-					          valueInputOption: 'USER_ENTERED'
-					        },range).then(function(response) {
-					          $('.loaded').hide();
-					          $('.sended').show();
-					        }, function(response) {
-					        });
-					    }, function(response) {
-		});;
+				range.values = object;
 
 
+				gapi.auth.authorize({client_id: '20449658341-fk436athd393dkamag4pj8f13mga5dm8.apps.googleusercontent.com', scope: 'https://www.googleapis.com/auth/spreadsheets', immediate: false}).then(function(response) {
+				    	
+							    	gapi.client.sheets.spreadsheets.values.update({
+							          spreadsheetId: '14VaRta1xOjgnKSommsSBzBWEA-KbY0x_CCfT4UGKOoQ',
+							          range: "'Лист1'!A1:Z100",
+							          valueInputOption: 'USER_ENTERED'
+							        },range).then(function(response) {
+							          $('.loaded').hide();
+							          $('.sended').show();
+							        }, function(response) {
+							        });
+							    }, function(response) {
+				});;
+
+
+
+
+	        }, function(response) {
+	          console.log(response.result.error.message);
+	        });
+
+	 
 
 	  }
 
