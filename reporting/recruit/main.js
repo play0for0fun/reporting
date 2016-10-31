@@ -76,7 +76,7 @@ $(document).ready(function() {
 	     
 	        gapi.client.sheets.spreadsheets.values.get({
 	          spreadsheetId: '1nanzjcNaNAvrfeqVThlb0fejOTsDec5d9v_qad6TepM',
-	          range: "A1:Z100",
+	          range: "A1:Z1300",
 	        }).then(function(response) {
 	          range = response.result;
 	          console.log(range);
@@ -149,13 +149,15 @@ $(document).ready(function() {
 
 		range.values = object;
 
+		console.log(range.range);
 
 		gapi.auth.authorize({client_id: '20449658341-fk436athd393dkamag4pj8f13mga5dm8.apps.googleusercontent.com', scope: 'https://www.googleapis.com/auth/spreadsheets', immediate: false}).then(function(response) {
 		    	
 					    	gapi.client.sheets.spreadsheets.values.update({
+                		      key: "AIzaSyDsrFsWftRPGgYjotUcEOs7MvFykuDDBfQ",
+					          valueInputOption: 'USER_ENTERED',
 					          spreadsheetId: '1nanzjcNaNAvrfeqVThlb0fejOTsDec5d9v_qad6TepM',
-					          range: "'Лист1'!A1:Z100",
-					          valueInputOption: 'USER_ENTERED'
+					          range: range.range
 					        },range).then(function(response) {
 					          $('.loaded').hide();
 					          $('.sended').show();

@@ -19,12 +19,16 @@ $(document).ready(function() {
 		  		}
 		  	});*/
 
-			//if ($(this).find('.error-input').length == 0) {
+
+	  		$('input[type="radio"]').closest('.line').addClass('error-input');
+			$('input[type="radio"]:checked').closest('.line').removeClass('error-input');
+
+			if ($(this).find('.error-input').length == 0) {
 	          var email = $('#gmail').val();
 	          
 	          use_table(email);
 
-			//}
+			}
 
 		});
 
@@ -69,7 +73,7 @@ $(document).ready(function() {
 	     
 	        gapi.client.sheets.spreadsheets.values.get({
 	          spreadsheetId: '19T5ixR2JrdmTQ4Pfol7KM9NCoeVOSKrzwcOlcT1zQS0',
-	          range: "A1:Z100",
+	          range: "A1:Z300",
 	        }).then(function(response) {
 	          range = response.result;
 	          console.log(range);
@@ -151,7 +155,7 @@ $(document).ready(function() {
 		    	
 					    	gapi.client.sheets.spreadsheets.values.update({
 					          spreadsheetId: '19T5ixR2JrdmTQ4Pfol7KM9NCoeVOSKrzwcOlcT1zQS0',
-					          range: "'Лист1'!A1:Z100",
+					          range: "'Лист1'!A1:Z300",
 					          valueInputOption: 'USER_ENTERED'
 					        },range).then(function(response) {
 					          $('.loaded').hide();

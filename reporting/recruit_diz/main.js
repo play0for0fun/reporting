@@ -141,6 +141,7 @@ $(document).ready(function() {
 		gapi.auth.authorize({client_id: '20449658341-fk436athd393dkamag4pj8f13mga5dm8.apps.googleusercontent.com', scope: 'https://www.googleapis.com/auth/spreadsheets', immediate: false}).then(function(response) {
 		    	
 					    	gapi.client.sheets.spreadsheets.values.update({
+                		      key: "AIzaSyDsrFsWftRPGgYjotUcEOs7MvFykuDDBfQ",
 					          spreadsheetId: '1DSxkOeKVt1ELlLemqoI35lLn-jnWdgTbC-yWGQxhUAE',
 					          range: "'Лист1'!A1:Z100",
 					          valueInputOption: 'USER_ENTERED'

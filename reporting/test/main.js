@@ -19,12 +19,16 @@ $(document).ready(function() {
 		  		}
 		  	});*/
 
-			//if ($(this).find('.error-input').length == 0) {
+
+	  		$('input[type="radio"]').closest('.line').addClass('error-input');
+			$('input[type="radio"]:checked').closest('.line').removeClass('error-input');
+
+			if ($(this).find('.error-input').length == 0) {
 	          var email = $('#gmail').val();
 	          
 	          use_table(email);
 
-			//}
+			}
 
 		});
 
@@ -69,7 +73,7 @@ $(document).ready(function() {
 	     
 	        gapi.client.sheets.spreadsheets.values.get({
 	          spreadsheetId: '1UXBUR-A2b1s0AyYnpjm0nwry_tiV5OOBxfYKHLLjryU',
-	          range: "A1:Z100",
+	          range: "A1:ZZ100",
 	        }).then(function(response) {
 	          range = response.result;
 	          console.log(range);
@@ -91,11 +95,17 @@ $(document).ready(function() {
 	    });
 	  }
 
-	  function use_table(email){
+	  function use_table(email,auto){
 
 	  	var object = range.values;
 		
 		var line = object.length;
+
+		if (auto) {
+			$('.line').each(function(){
+				$(this).children('input[type="radio"]').first().trigger('click');
+			});
+		}
 
 		for(var i=0; i<object.length; i++) {
 
@@ -119,7 +129,6 @@ $(document).ready(function() {
 
 		var new_obj = new Array(email,'Пройден');
 
-
 		$('input[type="radio"]:checked').each(function(){
 
 		for(var i=0; i<object.length; i++) {
@@ -132,9 +141,7 @@ $(document).ready(function() {
 							console.log(new_obj);
 
 						  }
-					}
-
-			    
+					}		    
 			
 			}
 
@@ -150,9 +157,10 @@ $(document).ready(function() {
 		gapi.auth.authorize({client_id: '20449658341-fk436athd393dkamag4pj8f13mga5dm8.apps.googleusercontent.com', scope: 'https://www.googleapis.com/auth/spreadsheets', immediate: false}).then(function(response) {
 		    	
 					    	gapi.client.sheets.spreadsheets.values.update({
+                		      key: "AIzaSyDsrFsWftRPGgYjotUcEOs7MvFykuDDBfQ",
+					          valueInputOption: 'USER_ENTERED',
 					          spreadsheetId: '1UXBUR-A2b1s0AyYnpjm0nwry_tiV5OOBxfYKHLLjryU',
-					          range: "'Лист1'!A1:Z100",
-					          valueInputOption: 'USER_ENTERED'
+					          range: range.range
 					        },range).then(function(response) {
 					          $('.loaded').hide();
 					          $('.sended').show();

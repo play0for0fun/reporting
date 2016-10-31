@@ -162,8 +162,8 @@ function find_cur_row(date) {
 
                         gapi.client.sheets.spreadsheets.values.update({
                             spreadsheetId: '1stpKVORtP8eoEHgLK9c-8ZQYomEx1CQ7A5lmjF0TzKE',
+                            valueInputOption: 'USER_ENTERED',
                             range: range.range,
-                            valueInputOption: 'USER_ENTERED'
                         }, range).then(function(response) {
                             $('.loaded').hide();
                             $('.sended').show();
