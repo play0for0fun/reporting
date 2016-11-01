@@ -11,25 +11,20 @@ $(document).ready(function() {
 
 		  	event.preventDefault();
 
-		  	/*$(this).find('input,textarea').each(function(){
-		  		if ($(this).val().length < 3 ) {
+		  	$(this).find('input,textarea').each(function(){
+		  		if ($(this).val().length < 1 ) {
 		  			$(this).addClass('error-input');
 		  		}else{
 		  			$(this).removeClass('error-input');
 		  		}
-		  	});*/
-
-
-	  		$('input[type="radio"]').closest('.line').addClass('error-input');
-			$('input[type="radio"]:checked').closest('.line').removeClass('error-input');
+		  	});
 
 			if ($(this).find('.error-input').length == 0) {
-	          var email = $('#gmail').val();
-	          
-	          use_table(email);
+	
 
-			}else{
-				$('<div class="notall">Вы не ответили на все вопросы</div>').appendTo('.submit-line');
+				loadSheetsApi();
+
+	       
 			}
 
 		});
@@ -51,7 +46,10 @@ $(document).ready(function() {
 
 	      	$('.g-signin2').hide();
 
-          	loadSheetsApi();
+          	//loadSheetsApi();
+
+
+	        loaded();
 	      
 	    }
 
@@ -74,12 +72,25 @@ $(document).ready(function() {
       	//gapi.auth.authorize({client_id: '20449658341-fk436athd393dkamag4pj8f13mga5dm8.apps.googleusercontent.com', scope: 'https://www.googleapis.com/auth/spreadsheets', immediate: false}).then(function(response) {
 	     
 	        gapi.client.sheets.spreadsheets.values.get({
-	          spreadsheetId: '1UXBUR-A2b1s0AyYnpjm0nwry_tiV5OOBxfYKHLLjryU',
-	          range: "A1:ZZ100",
+	          spreadsheetId: '10ssixCLTbuE8rFAk2DsB3VPpHcdjOqwXW1jsTcy2ajk',
+	          range: "A1:Z100",
 	        }).then(function(response) {
 	          range = response.result;
 	          console.log(range);
-	          loaded();        
+
+
+	          var gmail = $('#gmail').val();
+	          var email = $('#email').val();
+	          var name = $('#name').val();
+	          var phone = $('#phone').val();
+	          var time = $('#time').val();
+	          var vk = $('#vk').val();
+	          
+
+   				use_table(gmail,email,name,phone,time,email,vk);
+
+
+      
 	        }, function(response) {
 	          appendPre('Error: ' + response.result.error.message);
 	        });
@@ -97,57 +108,16 @@ $(document).ready(function() {
 	    });
 	  }
 
-	  function use_table(email,auto){
+	  function use_table(gmail,email,name,phone,time,email,vk){
 
 	  	var object = range.values;
 		
 		var line = object.length;
 
-		if (auto) {
-			$('.line').each(function(){
-				$(this).children('input[type="radio"]').first().trigger('click');
-			});
-		}
+		var new_obj = new Array(email,name,phone,time,vk);
 
-		for(var i=0; i<object.length; i++) {
 
-		  for(key in object[i]) {
-		    if(object[i][key].indexOf(email)!=-1) {
-				
-				//alert('Вы уже проходили тест',parseInt(key)+1);
-		    	if (object[i][parseInt(key)+1].indexOf('ройден')!=-1) {
-
-		    	alert('Вы уже проходили тест');
-		    	return false;
-		    
-		    	}else{
-
-		    		line = i;
-
-		    	}
-		    }
-		  }
-		}
-
-		var new_obj = new Array(email,'Пройден');
-
-		$('input[type="radio"]:checked').each(function(){
-
-		for(var i=0; i<object.length; i++) {
-
-			  for(key in object[i]) {
-					
-					    	if (object[i][key].indexOf($(this).attr('name'))!=-1) {
-							
-							new_obj[parseInt(key)] = $(this).val();
-							console.log(new_obj);
-
-						  }
-					}		    
-			
-			}
-
-		});
+		
 
 		object[line] = new_obj;
 		
@@ -160,9 +130,9 @@ $(document).ready(function() {
 		    	
 					    	gapi.client.sheets.spreadsheets.values.update({
                 		      key: "AIzaSyDsrFsWftRPGgYjotUcEOs7MvFykuDDBfQ",
-					          valueInputOption: 'USER_ENTERED',
-					          spreadsheetId: '1UXBUR-A2b1s0AyYnpjm0nwry_tiV5OOBxfYKHLLjryU',
-					          range: range.range
+					          spreadsheetId: '10ssixCLTbuE8rFAk2DsB3VPpHcdjOqwXW1jsTcy2ajk',
+					          range: "'Лист1'!A1:Z100",
+					          valueInputOption: 'USER_ENTERED'
 					        },range).then(function(response) {
 					          $('.loaded').hide();
 					          $('.sended').show();

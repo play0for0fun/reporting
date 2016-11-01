@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Необходимые данные</title>
+	<meta name="google-signin-client_id" content="20449658341-fk436athd393dkamag4pj8f13mga5dm8.apps.googleusercontent.com">
+	<meta name="google-signin-scope" content="https://www.googleapis.com/auth/spreadsheets">
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&amp;subset=cyrillic" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+</head>
+<body>
+	<div class="g-signin2" data-onsuccess="onSignIn"></div>
+	<form action="" method="post" style="display:none" id="report-form">
+		<div class="loading">Загрузка...</div>
+		<div class="loaded" style="display:none">
+			<div href="#" onclick="signOut();" class="exit">Выход</div>
+			<div class="line">
+				<div class="input-header">Имя:</div>
+				<input type="text" name="name" id="name">
+			</div>
+			<div class="line">
+				<div class="input-header">Номер телефона:</div>
+				<input type="text" name="phone" id="phone">
+			</div>
+			<div class="line">
+				<div class="input-header">Время когда звонить:</div>
+				<input type="text" name="time" id="time">
+			</div>
+			<div class="line">
+				<div class="input-header">Gmail, для добавления в гугл папку и трелло:</div>
+				<input type="text" name="email" id="email" placeholder="email@gmail.com">
+			</div>
+			<div class="line">
+				<div class="input-header">Ссылка ВК для добавления в общий чат:</div>
+				<input type="text" name="vk" id="vk" placeholder="http://vk.com/id11111111">
+			</div>
+			<input type="hidden" name="gmail" id="gmail">
+			<div class="line">
+				<button type="submit">Отправить</button>
+			</div>
+		</div>
+		<div class="loading sended">Данные отправлены, спасибо!</div>
+	</form>
+	<p style="position: fixed;width: 100%;bottom:5px; left: 0;text-align:center;">Если страница работает не коректно - отключите блокировку попапов для этого домена и анонимность подключения для данного домена</p>
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="https://apis.google.com/js/client.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+	<script src="https://apis.google.com/js/platform.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>

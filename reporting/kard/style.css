@@ -13,7 +13,7 @@ button,input,textarea{outline: none;font-family: inherit;}
 .line{
 	padding: 5px;
 	text-align: left;
-	width: 600px;
+	width: 400px;
 	margin: 0 auto 10px;
 }
 .quest{
@@ -24,8 +24,6 @@ button,input,textarea{outline: none;font-family: inherit;}
 }
 .loaded .input-header{
 	display: inline-block;
-	width: 80px;
-	text-align: right;
 	margin-right: 20px;
 	padding: 4px 6px;
 	font-size: 16px;
@@ -53,7 +51,12 @@ button,input,textarea{outline: none;font-family: inherit;}
 	margin-right: 8px;
 	height: 37px;
 	line-height: 37px;
-	vertical-align: middle;
+	display: block;
+	margin-top: 10px;
+}
+.input-header a{
+	color: blue;
+	text-decoration: underline;
 }
 .abcRioButton{
 	margin: 0 auto;
@@ -94,19 +97,4 @@ button[type="submit"]{
 	top: 50%;
 	font-size: 24px;
 	transform: translate3d(-50%,-50%,0);
-}
-p.heading{
-	clear: both;
-	font-size: 24px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-.notall{
-	float: right;
-	margin-top: 20px;
-	line-height: 28px;
-	width: 400px;
-	text-align: center;
-	font-size: 24px;
-	color: red;
 }
